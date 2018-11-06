@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
     <title>simon says js</title>
 </head>
 
@@ -11,11 +12,13 @@
 
     <h1>Simon Says JS</h1>
 
+    <button onclick="simonSays()">Test button</button>
+
     <!-- divs for the four color spaces -->
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+    <div data-light=1 class="simon-btn btn-red"></div>
+    <div data-light=2 class="simon-btn btn-blue"></div>
+    <div data-light=3 class="simon-btn btn-green"></div>
+    <div data-light=4 class="simon-btn btn yellow"></div>
 
 
     <script>
@@ -26,13 +29,22 @@
         let level = 4;
 
         function simonSays() {
+            simon = [];
             for(let i = 0; i < level; i++) {
                 simon.push(Math.floor(Math.random() * 4) + 1 );
             }
             console.log(simon);
+            buttonLights();
         }
 
-        simonSays();
+        function buttonLights() {
+            for(let j = 0; j < simon.length; j++) {
+                let simonButton = document.querySelector(`.simon-btn[data-light="${simon[j]}"]`);
+                console.log(simonButton);
+
+                simonButton.classList.add('btn-pushed');
+            }
+        }
     
     </script>
 
