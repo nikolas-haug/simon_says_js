@@ -28,23 +28,60 @@
         let player = [];
         let level = 4;
 
+        simonDivs = document.querySelectorAll('.simon-btn');
+
         function simonSays() {
             simon = [];
             for(let i = 0; i < level; i++) {
-                simon.push(Math.floor(Math.random() * 4) + 1 );
+                simon.push(Math.floor(Math.random() * level) + 1 );
             }
             console.log(simon);
-            buttonLights();
+            // buttonLights();
+            // return simon;
+            loopThroughLightsArray(simon);
         }
 
-        function buttonLights() {
-            for(let j = 0; j < simon.length; j++) {
-                let simonButton = document.querySelector(`.simon-btn[data-light="${simon[j]}"]`);
+        // function buttonLights() {
+        //     for(let j = 0; j < simon.length; j++) {
+        //         let simonButton = document.querySelector(`.simon-btn[data-light="${simon[j]}"]`);
+        //         console.log(simonButton);
+
+        //         simonButton.classList.add('btn-pushed');
+        //     }
+        // }
+
+        function buttonLights(light) {
+            // for(let j = 0; j < simon.length; j++) {
+                let simonButton = document.querySelector(`.simon-btn[data-light="${light}"]`);
                 console.log(simonButton);
 
                 simonButton.classList.add('btn-pushed');
-            }
+            // }
         }
+
+        // function for simon lights timed out array loop
+        function loopThroughLightsArray(splitArr) {
+            for (let i = 0; i < splitArr.length; i++) {
+                // for each iteration light a single div
+                // and make a pause after it
+                (function (i) {
+                    setTimeout( () => {
+                        console.log(splitArr[i]);
+                        buttonLights(splitArr[i]);
+                    }, 550 * i);
+                })(i);
+                // console.log(i);
+            };
+        }
+
+        function removeTransition(e) {
+            console.log(e);
+            if(e.propertyName !== 'background-color') return
+            this.classList.remove('btn-pushed');
+        }
+
+        simonDivs.forEach(sqr => sqr.addEventListener('transitionend', removeTransition));
+
     
     </script>
 

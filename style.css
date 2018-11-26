@@ -8,5 +8,5 @@
 
 .btn-pushed {
     background-color: red;
-    transition: all 3s;
+    transition: all 0.3s;
 }
