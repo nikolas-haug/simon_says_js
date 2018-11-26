@@ -18,7 +18,7 @@
     <div data-light=1 class="simon-btn btn-red"></div>
     <div data-light=2 class="simon-btn btn-blue"></div>
     <div data-light=3 class="simon-btn btn-green"></div>
-    <div data-light=4 class="simon-btn btn yellow"></div>
+    <div data-light=4 class="simon-btn btn-yellow"></div>
 
 
     <script>
@@ -28,12 +28,16 @@
         let player = [];
         let level = 4;
 
+        // TEST variables
+        const testSimon = [1, 2, 3, 4];
+        const playerArr = [1, 2, 3, 4];
+
         simonDivs = document.querySelectorAll('.simon-btn');
 
         function simonSays() {
             simon = [];
             for(let i = 0; i < level; i++) {
-                simon.push(Math.floor(Math.random() * level) + 1 );
+                simon.push(Math.floor(Math.random() * 4) + 1 );
             }
             console.log(simon);
             // buttonLights();
@@ -53,7 +57,7 @@
         function buttonLights(light) {
             // for(let j = 0; j < simon.length; j++) {
                 let simonButton = document.querySelector(`.simon-btn[data-light="${light}"]`);
-                console.log(simonButton);
+                // console.log(simonButton);
 
                 simonButton.classList.add('btn-pushed');
             // }
@@ -66,7 +70,7 @@
                 // and make a pause after it
                 (function (i) {
                     setTimeout( () => {
-                        console.log(splitArr[i]);
+                        // console.log(splitArr[i]);
                         buttonLights(splitArr[i]);
                     }, 550 * i);
                 })(i);
@@ -74,13 +78,34 @@
             };
         }
 
+        // function to check if user input is equal to random simon array
+        function arraysEqual(arr1, arr2) {
+            // check array lengths
+            if(arr1.length !== arr2.length) {
+                console.log("not same length!");
+                return false;
+            } else {
+                // check array contents
+                for(let i = 0; i < arr1.length; i++) {
+                    if(arr1[i] !== arr2[i]) {
+                        console.log("not equal");
+                        return false;
+                    }
+                }
+            } 
+            // return true if array length and contents are equal
+            return true;
+        }
+
         function removeTransition(e) {
-            console.log(e);
+            // console.log(e);
             if(e.propertyName !== 'background-color') return
             this.classList.remove('btn-pushed');
         }
 
         simonDivs.forEach(sqr => sqr.addEventListener('transitionend', removeTransition));
+
+        console.log(arraysEqual(testSimon, playerArr));
 
     
     </script>
