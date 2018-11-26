@@ -14,12 +14,15 @@
 
     <button onclick="simonSays()">Test button</button>
 
-    <!-- divs for the four color spaces -->
-    <div data-light=1 class="simon-btn btn-red"></div>
-    <div data-light=2 class="simon-btn btn-blue"></div>
-    <div data-light=3 class="simon-btn btn-green"></div>
-    <div data-light=4 class="simon-btn btn-yellow"></div>
-
+    <!-- div container for light buttons -->
+    <div id="lights-container">
+        <!-- divs for the four color spaces -->
+        <div data-light=1 class="simon-btn btn-red"></div>
+        <div data-light=2 class="simon-btn btn-blue"></div>
+        <div data-light=3 class="simon-btn btn-green"></div>
+        <div data-light=4 class="simon-btn btn-yellow"></div>
+    </div>
+    
 
     <script>
     
@@ -32,6 +35,7 @@
         const testSimon = [1, 2, 3, 4];
         const playerArr = [1, 2, 3, 4];
 
+        // lightDiv = document.querySelector('#lights-container');
         simonDivs = document.querySelectorAll('.simon-btn');
 
         function simonSays() {
@@ -97,12 +101,22 @@
             return true;
         }
 
+        // function for when a player clicks a particular square
+        function handleSquareClick(e) {
+            // console.log(e.target.dataset.light);
+            let newClick = e.target.dataset.light;
+            player.push(newClick);
+            console.log(player);
+            player = [];
+        }
+
         function removeTransition(e) {
             // console.log(e);
             if(e.propertyName !== 'background-color') return
             this.classList.remove('btn-pushed');
         }
 
+        simonDivs.forEach(sqr => sqr.addEventListener('click', handleSquareClick));
         simonDivs.forEach(sqr => sqr.addEventListener('transitionend', removeTransition));
 
         console.log(arraysEqual(testSimon, playerArr));
