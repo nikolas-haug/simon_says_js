@@ -103,7 +103,11 @@
 
         // function for when a player clicks a particular square
         function handleSquareClick(e) {
+            // TEST for CSS variable transition
+            // this.style.setProperty('--base-light', this.value * 2);
+
             // console.log(e.target.dataset.light);
+            this.classList.add('btn-pushed');
             let newClick = parseInt(e.target.dataset.light);
             player.push(newClick);
             console.log(player);
