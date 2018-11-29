@@ -98,16 +98,21 @@
                 for(let i = 0; i < arr1.length; i++) {
                     if(arr1[i] !== arr2[i]) {
                         console.log("not equal");
+                        // TO DO - make function to end game
+                        simon = [];
                         return false;
                     }
                 }
             } 
             // return true if array length and contents are equal
+            // TO DO - make function to recall the simon says function and increment score
+            simon = [];
             return true;
         }
 
         // function for when a player clicks a particular square
         function handleSquareClick(e) {
+            if(simon.length < level) return;
             // TEST for CSS variable transition
             // this.style.setProperty('--base-light', this.value * 2);
 
@@ -125,6 +130,7 @@
             // player = [];
         }
 
+        // function to remove the css transition class
         function removeTransition(e) {
             // console.log(e.propertyName);
             // if(e.propertyName !== 'background-color') return
@@ -135,7 +141,8 @@
         simonDivs.forEach(sqr => sqr.addEventListener('click', handleSquareClick));
         simonDivs.forEach(sqr => sqr.addEventListener('transitionend', removeTransition));
 
-        console.log(arraysEqual(testSimon, playerArr));
+        // TEST for arrays equal function
+        // console.log(arraysEqual(testSimon, playerArr));
 
     
     </script>
