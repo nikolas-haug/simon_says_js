@@ -10,17 +10,22 @@
 
 <body>
 
-    <h1>Simon Says JS</h1>
+    <h1 class="title">Simon Says JS</h1>
 
-    <button onclick="simonSays()">Test button</button>
+    <div class="game-util">
+        <button class="start-button" onclick="simonSays()">Start</button>
+    </div>
+    
 
     <!-- div container for light buttons -->
     <div id="lights-container">
         <!-- divs for the four color spaces -->
-        <div data-light=1 class="simon-btn btn-red"></div>
-        <div data-light=2 class="simon-btn btn-blue"></div>
-        <div data-light=3 class="simon-btn btn-green"></div>
-        <div data-light=4 class="simon-btn btn-yellow"></div>
+        <div class="single-lights-container">
+            <div data-light=1 class="simon-btn btn-red"></div>
+            <div data-light=2 class="simon-btn btn-blue"></div>
+            <div data-light=3 class="simon-btn btn-green"></div>
+            <div data-light=4 class="simon-btn btn-yellow"></div>
+        </div>
     </div>
     
 

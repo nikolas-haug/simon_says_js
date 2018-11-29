@@ -7,7 +7,37 @@
     --base-light: 36%;
 }
 
+.title {
+    text-align: center;
+}
+
+.game-util {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.start-button {
+    cursor: pointer; 
+}
+
+#lights-container {
+    margin: auto;
+    height: 400px;
+    width: 500px;
+    background-color: black;
+    border-radius: 50%;
+    position: relative;
+}
+
+.single-lights-container {
+    position: absolute;
+    top: 35%;
+    left: 10%;
+}
+
 .simon-btn {
+    float: left;
+    cursor: pointer;
     width: 100px;
     height: 100px;
     border: 1px solid black;
@@ -30,8 +60,8 @@
 }
 
 .btn-pushed {
-    border: 7px solid black;
-    box-shadow: 0px 0px 4px black;
+    border: 2px solid black;
+    box-shadow: 0px 0px 100px #fff;
 
     /* background-color: hsla(0, 100%, var(--base-light * 2), 1); */
 
