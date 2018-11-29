@@ -13,11 +13,13 @@
 
 .game-util {
     text-align: center;
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
+    height: 40px;
 }
 
 .start-button {
     cursor: pointer; 
+    margin-top: 13px;
 }
 
 #lights-container {
