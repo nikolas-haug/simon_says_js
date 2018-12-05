@@ -63,7 +63,7 @@
 
 .btn-pushed {
     border: 2px solid black;
-    box-shadow: 0px 0px 100px #fff;
+    box-shadow: 0px 0px 200px #fff;
 
     /* background-color: hsla(0, 100%, var(--base-light * 2), 1); */
 

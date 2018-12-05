@@ -34,11 +34,13 @@
         // set the initial game variables
         let simon = [];
         let player = [];
-        let level = 4;
+        let level = 1;
+
+        // TO DO - make random mode vs original mode for the sequence of light flashes
 
         // TEST variables
-        const testSimon = [1, 2, 3, 4];
-        const playerArr = [1, 2, 3, 4];
+        // const testSimon = [1, 2, 3, 4];
+        // const playerArr = [1, 2, 3, 4];
 
         // lightDiv = document.querySelector('#lights-container');
         simonDivs = document.querySelectorAll('.simon-btn');
@@ -54,7 +56,7 @@
             loopThroughLightsArray(simon);
 
             // hide button after game begins
-            // document.querySelector('.start-button').style.display = 'none';
+            document.querySelector('.start-button').style.visibility = 'hidden';
         }
 
         // function buttonLights() {
@@ -101,7 +103,9 @@
                 for(let i = 0; i < arr1.length; i++) {
                     if(arr1[i] !== arr2[i]) {
                         console.log("not equal");
-                        // TO DO - make function to end game
+                        // TO DO - make function to end game and display message in div or container
+                        
+                        restartGame();
                         simon = [];
                         return false;
                     }
@@ -110,6 +114,9 @@
             // return true if array length and contents are equal
             // TO DO - make function to recall the simon says function and increment score
             simon = [];
+            level++;
+            // wait and then start the light sequence over again
+            setTimeout(simonSays, 2000);
             return true;
         }
 
@@ -131,6 +138,12 @@
                 player = [];
             }
             // player = [];
+        }
+
+        // function to restart game if player's array does not match
+        function restartGame() {
+            // show button after game begins
+            document.querySelector('.start-button').style.visibility = 'visible';
         }
 
         // function to remove the css transition class
