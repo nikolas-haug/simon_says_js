@@ -14,6 +14,8 @@
 
     <div class="game-util">
         <button class="start-button" onclick="simonSays()">Start</button>
+        <button>Choose random sequence</button>
+        <button>choose classic sequence</button>
     </div>
     
 
@@ -106,6 +108,8 @@
                         // TO DO - make function to end game and display message in div or container
                         
                         restartGame();
+                        // reset variables
+                        level = 1;
                         simon = [];
                         return false;
                     }
